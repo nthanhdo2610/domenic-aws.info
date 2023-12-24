@@ -13,9 +13,9 @@ class Links extends React.Component {
                         </a>
                     </li>
                     <li>
-                        <a href="https://gitlab.com/GaSieuGru" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.facebook.com/nthanhdo2610" target="_blank" rel="noopener noreferrer">
               <span className="social ico-circle">
-                <i className="fa-brands fa-gitlab"></i>
+                <i className="fa-brands fa-facebook"></i>
               </span>
                         </a>
                     </li>

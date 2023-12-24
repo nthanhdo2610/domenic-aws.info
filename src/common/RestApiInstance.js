@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-let defautRequestConfig = {
+let defaultRequestConfig = {
     baseURL: '/'
 }
 
-const defaultRestApi = axios.create(defautRequestConfig);
+const defaultRestApi = axios.create(defaultRequestConfig);
 
 defaultRestApi.interceptors.request.use(function (config) {
     // config.params = {

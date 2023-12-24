@@ -1,15 +1,13 @@
 import React from "react";
 import $ from "jquery";
 
-import UserInfo from "../UserInfo";
-
 import logo1 from "../../img/logo.svg";
 import logo2 from "../../img/logo2.svg";
 
 
 class Navbar extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             logo: logo1
         };
@@ -139,11 +137,11 @@ class Navbar extends React.Component {
                                     Skills & Experience
                                 </a>
                             </li>
-                            <li className="nav-item">
-                                <a className="nav-link js-scroll" href="#projects">
-                                    Projects
-                                </a>
-                            </li>
+                            {/*<li className="nav-item">*/}
+                            {/*    <a className="nav-link js-scroll" href="#projects">*/}
+                            {/*        Projects*/}
+                            {/*    </a>*/}
+                            {/*</li>*/}
                             <li className="nav-item">
                                 <a className="nav-link js-scroll" href="#education">
                                     Education
@@ -153,9 +151,6 @@ class Navbar extends React.Component {
                                 <a className="nav-link js-scroll" href="#contact">
                                     Contact
                                 </a>
-                            </li>
-                            <li className="nav-item">
-                                <UserInfo/>
                             </li>
                         </ul>
                     </div>
