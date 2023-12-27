@@ -1,12 +1,8 @@
-import AwsKeys from './AwsKeys';
+import AwsAccess from './AwsAccess';
 
-const {apiPath, awsCognitoURL} = AwsKeys;
+const {apiPath} = AwsAccess;
 
 const AwsAPIs = {
-
-    getImpressionsAPI: function (email) {
-        return `${apiPath}/impressions`;
-    },
 
     sendEmailAPI: function () {
         return `${apiPath}/email`;
