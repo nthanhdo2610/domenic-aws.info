@@ -9,13 +9,13 @@ const defaultMessage = {
     name: "",
     subject: "",
     email: "",
-    contain: "",
+    content: "",
     phone: ""
 }
 
 const defaultModal = {
     show: false,
-    contain: ""
+    content: ""
 }
 
 export const maps = {
@@ -58,12 +58,12 @@ function Contact(props) {
             setErrorMessage();
             setModal({
                 show: true,
-                contain: "The message sent successfully!!!",
+                content: "The message sent successfully!!!",
             });
         }).catch(error => {
             setModal({
                 show: true,
-                contain: "The message sent failed!!!",
+                content: "The message sent failed!!!",
             });
         });
     }
@@ -82,7 +82,7 @@ function Contact(props) {
                 <Modal.Header>
                     <Modal.Title>Message</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>{modal.contain}</Modal.Body>
+                <Modal.Body>{modal.content}</Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" onClick={handleClose}>
                         Close
@@ -192,14 +192,14 @@ function Contact(props) {
                                                             <label>Your Message</label>
                                                             <textarea
                                                                 className="form-control"
-                                                                name="contain"
-                                                                id="contain"
+                                                                name="content"
+                                                                id="content"
                                                                 rows="5"
                                                                 data-rule="required"
                                                                 data-msg="Please write something for us"
                                                                 placeholder="Message"
                                                                 required
-                                                                value={message.contain}
+                                                                value={message.content}
                                                                 onChange={handleChange}
                                                             ></textarea>
                                                             <div className="validation"></div>

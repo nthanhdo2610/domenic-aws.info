@@ -143,7 +143,7 @@ class About extends React.Component {
                                         <a className="btn-shutter-out-horizontal "
                                            target="_blank"
                                            rel="noopener noreferrer"
-                                           href="https://docs.google.com/document/d/1P3T-YTWPhC7H3rzdqou3lA9TXfn9VK74/view"
+                                           href="https://docs.google.com/document/d/1N7JcBJ87yaMn9oR4YoczUgeafqWACU1t/view"
                                         >
                                             Download Resume
                                         </a>
