@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Links from '../Links';
@@ -10,7 +10,8 @@ const defaultModal = {
 
 export const maps = {
     vancouverWA: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d89268.25669266736!2d-122.70135958272935!3d45.63810803143467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5495af63c85914f9%3A0x8456d5112c91e3f3!2sVancouver%2C%20WA!5e0!3m2!1sen!2sus!4v1703314245726!5m2!1sen!2sus",
-}
+};
+
 export const info = {
     fullName: "Thanh Do Nguyen",
     jobTitle: "Software Engineer",
@@ -32,12 +33,13 @@ function Contact() {
     const [message, setMessage] = useState(defaultState);
     const [modal, setModal] = useState(defaultModal);
     const [errorMessage, setErrorMessage] = useState();
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const {address, phone, email} = info;
-    const {vancouverWA} = maps;
+    const { address, phone, email } = info;
+    const { vancouverWA } = maps;
 
     function handleChange(event) {
-        const {id, value} = event.target;
+        const { id, value } = event.target;
         setMessage((values) => ({
             ...values,
             [id]: value,
@@ -47,8 +49,15 @@ function Contact() {
     function handleSubmit(event) {
         event.preventDefault();
 
+        if (isSubmitting) {
+            return;
+        }
+
+        setIsSubmitting(true);
+
         if (message.phone && !isValidPhoneNumber(message.phone)) {
             setErrorMessage("Please enter a valid phone number");
+            setIsSubmitting(false);
             return;
         }
 
@@ -56,10 +65,13 @@ function Contact() {
             .then(() => {
                 setMessage(defaultState);
                 setErrorMessage();
-                setModal({show: true, content: "The message sent successfully!!!"});
+                setModal({ show: true, content: "The message sent successfully!!!" });
             })
             .catch(() => {
-                setModal({show: true, content: "The message sent failed!!!"});
+                setModal({ show: true, content: "The message sent failed!!!" });
+            })
+            .finally(() => {
+                setIsSubmitting(false);
             });
     }
 
@@ -155,7 +167,7 @@ function Contact() {
                                                                 name="phone"
                                                                 id="phone"
                                                                 placeholder="Please enter your number"
-                                                                required
+                                                                // required
                                                                 value={message.phone}
                                                                 onChange={handleChange}
                                                             />
@@ -202,8 +214,12 @@ function Contact() {
                                                 <div className="col-md-12 submit-btn">
                                                     {errorMessage &&
                                                         <div className="error-message">{errorMessage}</div>}
-                                                    <button type="submit" className="btn-shutter-out-horizontal ">
-                                                        Send Message
+                                                    <button
+                                                        type="submit"
+                                                        className="btn-shutter-out-horizontal"
+                                                        disabled={isSubmitting}
+                                                    >
+                                                        {isSubmitting ? 'Sending...' : 'Send Message'}
                                                     </button>
                                                 </div>
                                             </form>
