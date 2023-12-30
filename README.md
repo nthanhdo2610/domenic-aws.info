@@ -4,13 +4,15 @@
 
 ### Technology stacks:
 
-* S3
-* Lambda
-* SNS
-* API Gateway
-* Route53
-* Cognito
-* Dynamodb
+* Amazon Route53
+* Amazon CloudFront
+* Amazon S3
+* Amazon API Gateway
+* Amazon Lambda
+* Amazon DynamoDB
+* Amazon SES
+* Amazon IAM
+* Amazon CloudWatch
 * ReactJS
 
 ### Website

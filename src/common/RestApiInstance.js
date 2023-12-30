@@ -1,20 +1,22 @@
 import axios from 'axios';
 
 let defaultRequestConfig = {
-    baseURL: '/'
-}
+    baseURL: '/',
+    // Uncomment and include additional settings if needed
+    // params: {
+    //   locale: "en_US",
+    //   '_': new Date().getTime(),
+    //   withCredentials: true
+    // },
+};
 
 const defaultRestApi = axios.create(defaultRequestConfig);
 
 defaultRestApi.interceptors.request.use(function (config) {
-    // config.params = {
-    //   locale: "en_US",
-    //   '_': new Date().getTime(),
-    //   withCredentials: true
-    //   };
+    // You can perform additional request configuration here if needed
     return config;
 }, function (error) {
-    // Do something with request error
+    // Handle request errors
     return Promise.reject(error);
 });
 

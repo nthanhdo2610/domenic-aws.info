@@ -105,7 +105,7 @@ class Timeline extends Component {
                                 textAlign: "center",
                             }}
                             icon={
-                                <i className={`fa ${id == "experience" ? "fa-paper-plane-o" : "fa-graduation-cap"} mx-auto experience-icon`}></i>
+                                <i className={`fa ${id === "certification" ? "fa-certificate" : "fa-graduation-cap"} mx-auto experience-icon`}></i>
                             }
                         />
                         {this.generateSections()}

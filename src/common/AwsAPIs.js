@@ -1,12 +1,9 @@
 import AwsAccess from './AwsAccess';
 
-const {apiPath} = AwsAccess;
+const { apiPath } = AwsAccess;
 
 const AwsAPIs = {
-
-    sendEmailAPI: function () {
-        return `${apiPath}/email`;
-    },
-}
+    sendEmailAPI: () => `${apiPath}/email`,
+};
 
 export default AwsAPIs;

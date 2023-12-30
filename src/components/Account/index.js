@@ -1,13 +1,23 @@
-import React, {createContext} from 'react';
+import React, { createContext, useState } from 'react';
 
-const AccountContext = createContext(undefined);
+const AccountContext = createContext();
 
-const Account = props => {
+const Account = (props) => {
+    const [user, setUser] = useState(null); // You can initialize user state with null or any default value
+
+    const login = (userData) => {
+        setUser(userData);
+    };
+
+    const logout = () => {
+        setUser(null);
+    };
+
     return (
-        <AccountContext.Provider value={{}}>
+        <AccountContext.Provider value={{ user, login, logout }}>
             {props.children}
         </AccountContext.Provider>
     );
 };
 
-export {Account, AccountContext};
+export { Account, AccountContext };

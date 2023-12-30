@@ -1,9 +1,18 @@
 import React from "react";
-
 import workflow from "../../img/workflow.svg";
 
-class Blog extends React.Component {
+const ExternalLink = ({ href, children }) => (
+    <a
+        className="btn-shutter-out-horizontal"
+        target="_blank"
+        rel="noopener noreferrer"
+        href={href}
+    >
+        {children} <i className="fas fa-external-link-alt"></i>
+    </a>
+);
 
+class Blog extends React.Component {
     render() {
         return (
             <section id="block" className="about-mf sect-pt4 route">
@@ -15,20 +24,18 @@ class Blog extends React.Component {
                                     <div className="col-md-12">
                                         <div className="pt-4 pt-md-0">
                                             <div className="title-box-2">
-                                                <h5 className="title title-left">This website's infrastructure</h5>
+                                                <h5 className="title title-left">
+                                                    This website's infrastructure
+                                                </h5>
                                             </div>
                                             <div className="row">
                                                 <div className="col-md-12 text-center">
-                                                    <a className="btn-shutter-out-horizontal "
-                                                       target="_blank"
-                                                       rel="noopener noreferrer"
-                                                       href="https://github.com/nthanhdo2610/domenic-aws.info"
-                                                    >
+                                                    <ExternalLink href="https://github.com/nthanhdo2610/domenic-aws.info">
                                                         ReadMe
-                                                    </a>
+                                                    </ExternalLink>
                                                 </div>
                                                 <div className="col-md-12 text-center">
-                                                    <img src={workflow} alt="" className="workflow"/>
+                                                    <img src={workflow} alt="Workflow Diagram" className="workflow" />
                                                 </div>
                                             </div>
                                         </div>
@@ -38,7 +45,6 @@ class Blog extends React.Component {
                         </div>
                     </div>
                 </div>
-                {/* <img src={workflow}></img> */}
             </section>
         );
     }

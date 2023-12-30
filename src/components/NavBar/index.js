@@ -1,163 +1,121 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import $ from "jquery";
-
 import logo1 from "../../img/logo.svg";
 import logo2 from "../../img/logo2.svg";
 
+const Navbar = () => {
+    const [logo, setLogo] = useState(logo1);
 
-class Navbar extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            logo: logo1
-        };
+    const togglerHandle = () => {
+        const mainNav = $("#mainNav");
 
-        this.togglerHandle = this.togglerHandle.bind(this);
-    }
+        if (!mainNav.hasClass("navbar-reduce")) {
+            mainNav.addClass("navbar-reduce");
+            setLogo(logo2);
+        } else {
+            mainNav.removeClass("navbar-reduce");
+            setLogo(logo1);
+        }
+    };
 
-    componentDidMount() {
+    useEffect(() => {
         const nav = $("nav");
         let navHeight = nav.outerHeight();
 
-        $(".navbar-toggler").on("click", this.togglerHandle);
+        $(".navbar-toggler").on("click", togglerHandle);
 
         $("body").scrollspy({
             target: "#mainNav",
-            offset: navHeight
+            offset: navHeight,
         });
 
-        $(".js-scroll").on("click", function () {
+        $(".js-scroll").on("click", () => {
             $(".navbar-collapse").collapse("hide");
         });
 
-        window.addEventListener("scroll", () => {
-            if (window.pageYOffset > 50) {
-                document
-                    .querySelector(".navbar-expand-md")
-                    .classList.add("navbar-reduce");
-                document
-                    .querySelector(".navbar-expand-md")
-                    .classList.remove("navbar-trans");
-                this.setState({logo: logo2});
+        $(window).on("scroll", () => {
+            const scrollOffset = window.pageYOffset;
+            const navbarExpandMd = document.querySelector(".navbar-expand-md");
+
+            if (scrollOffset > 50) {
+                navbarExpandMd.classList.add("navbar-reduce");
+                navbarExpandMd.classList.remove("navbar-trans");
+                setLogo(logo2);
             } else {
-                document
-                    .querySelector(".navbar-expand-md")
-                    .classList.add("navbar-trans");
-                document
-                    .querySelector(".navbar-expand-md")
-                    .classList.remove("navbar-reduce");
-                this.setState({logo: logo1});
+                navbarExpandMd.classList.add("navbar-trans");
+                navbarExpandMd.classList.remove("navbar-reduce");
+                setLogo(logo1);
             }
         });
 
         $('a.js-scroll[href*="#"]:not([href="#"])').on("click", function () {
-            if (
-                window.location.pathname.replace(/^\//, "") ===
-                this.pathname.replace(/^\//, "") &&
-                window.location.hostname === this.hostname
-            ) {
-                var target = $(this.hash);
-                target = target.length
-                    ? target
-                    : $("[name=" + this.hash.slice(1) + "]");
-                if (target.length) {
-                    $("html, body").animate(
-                        {
-                            scrollTop: target.offset().top - navHeight + 5
-                        },
-                        1000,
-                        "easeInExpo"
-                    );
-                    return false;
-                }
+            const target = $($(this).attr("href"));
+            if (target.length) {
+                $("html, body").animate(
+                    {
+                        scrollTop: target.offset().top - navHeight + 5,
+                    },
+                    1000,
+                    "easeInExpo"
+                );
+                return false;
             }
         });
 
-        $(".js-scroll").on("click", function () {
+        $(".js-scroll").on("click", () => {
             $(".navbar-collapse").collapse("hide");
         });
-    }
 
-    togglerHandle() {
-        if (!$("#mainNav").hasClass("navbar-reduce")) {
-            $("#mainNav").addClass("navbar-reduce");
-            this.setState({logo: logo2});
-        } else {
-            $("#mainNav").removeClass("navbar-reduce");
-            this.setState({logo: logo1});
-        }
-    }
+        return () => {
+            // Cleanup
+            $(".navbar-toggler").off("click", togglerHandle);
+            $("body").off("scroll", togglerHandle);
+            $('a.js-scroll[href*="#"]:not([href="#"])').off("click");
+            $(".js-scroll").off("click");
+        };
+    }, []); // Empty dependency array ensures the effect runs only once on mount
 
-    render() {
-        return (
-            <nav
-                className="navbar navbar-b navbar-trans navbar-expand-md fixed-top"
-                id="mainNav"
-            >
-                <div className="container">
-                    <a className="navbar-brand js-scroll" href="#page-top">
-                        {/* <img
-              src={this.state.logo}
-              alt="logo"
-              style={{ maxWidth: "140px" }}
-            /> */}
-                        {/* <i className="fa fa-rocket logo"></i> */}
-                        <i className="fa-brands fa-aws logo"></i>
-                    </a>
-                    <button
-                        className="navbar-toggler collapsed"
-                        type="button"
-                        data-toggle="collapse"
-                        data-target="#navbarDefault"
-                        aria-controls="navbarDefault"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                    >
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                    <div
-                        className="navbar-collapse collapse justify-content-end"
-                        id="navbarDefault"
-                    >
-                        <ul className="navbar-nav">
-                            <li className="nav-item">
-                                <a className="nav-link js-scroll active" href="#home">
-                                    Home
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link js-scroll" href="#about">
-                                    About
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link js-scroll" href="#skills">
-                                    Skills & Experience
-                                </a>
-                            </li>
-                            {/*<li className="nav-item">*/}
-                            {/*    <a className="nav-link js-scroll" href="#projects">*/}
-                            {/*        Projects*/}
-                            {/*    </a>*/}
-                            {/*</li>*/}
-                            <li className="nav-item">
-                                <a className="nav-link js-scroll" href="#education">
-                                    Education
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link js-scroll" href="#contact">
-                                    Contact
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+    return (
+        <nav className="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
+            <div className="container">
+                <a className="navbar-brand js-scroll" href="#page-top">
+                    <i className="fa-brands fa-aws logo"></i>
+                </a>
+                <button
+                    className="navbar-toggler collapsed"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarDefault"
+                    aria-controls="navbarDefault"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div className="navbar-collapse collapse justify-content-end" id="navbarDefault">
+                    <ul className="navbar-nav">
+                        <NavItem target="home" label="Home" />
+                        <NavItem target="about" label="About" />
+                        <NavItem target="skills" label="Skills & Experience" />
+                        {/*<NavItem target="projects" label="Projects" />*/}
+                        <NavItem target="education" label="Education" />
+                        <NavItem target="certification" label="Certification" />
+                        <NavItem target="contact" label="Contact" />
+                    </ul>
                 </div>
-            </nav>
-        );
-    }
-}
+            </div>
+        </nav>
+    );
+};
+
+const NavItem = ({ target, label }) => (
+    <li className="nav-item">
+        <a className="nav-link js-scroll" href={`#${target}`}>
+            {label}
+        </a>
+    </li>
+);
 
 export default Navbar;

@@ -1,7 +1,8 @@
+// Import external libraries
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-//import css in order
+// Import CSS styles
 import 'normalize.css';
 import './css/animate.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -11,20 +12,24 @@ import 'lightbox2/dist/css/lightbox.min.css'
 import './css/style.css';
 import './css/index.css';
 
-//import js libraries
+// Import JavaScript libraries
 import 'jquery/dist/jquery.min.js';
 import 'popper.js/dist/popper.min.js';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import './libs/easing.js';
 import 'lightbox2/dist/js/lightbox.min.js';
 
-import * as serviceWorker from './serviceWorker';
+// Import the main App component
 import App from './App';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+// Import service worker
+import * as serviceWorker from './serviceWorker';
+
+// Create a React root and render the App component
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-        <App/>
+        <App />
     </React.StrictMode>
 );
 

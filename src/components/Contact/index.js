@@ -1,22 +1,12 @@
 import React, {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-
-import Links from "../Links";
-import awsActions from "../../actions/AwsActions";
-
-const defaultMessage = {
-    name: "",
-    subject: "",
-    email: "",
-    content: "",
-    phone: ""
-}
+import Links from '../Links';
+import awsActions from '../../actions/AwsActions';
 
 const defaultModal = {
     show: false,
-    content: ""
-}
+};
 
 export const maps = {
     vancouverWA: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d89268.25669266736!2d-122.70135958272935!3d45.63810803143467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5495af63c85914f9%3A0x8456d5112c91e3f3!2sVancouver%2C%20WA!5e0!3m2!1sen!2sus!4v1703314245726!5m2!1sen!2sus",
@@ -27,13 +17,22 @@ export const info = {
     website: "www.domenic-aws.info",
     address: "Vancouver, WA 98662",
     phone: "(360) 784-1696",
-    email: "nguyenthanhdo1993phuyen@gmail.com"
-}
+    email: "nguyenthanhdo1993phuyen@gmail.com",
+};
 
-function Contact(props) {
-    const [message, setMessage] = useState(defaultMessage);
+const defaultState = {
+    name: '',
+    subject: '',
+    email: '',
+    content: '',
+    phone: '',
+};
+
+function Contact() {
+    const [message, setMessage] = useState(defaultState);
     const [modal, setModal] = useState(defaultModal);
     const [errorMessage, setErrorMessage] = useState();
+
     const {address, phone, email} = info;
     const {vancouverWA} = maps;
 
@@ -53,27 +52,23 @@ function Contact(props) {
             return;
         }
 
-        awsActions.sendMessage(message).then(data => {
-            setMessage(defaultMessage);
-            setErrorMessage();
-            setModal({
-                show: true,
-                content: "The message sent successfully!!!",
+        awsActions.sendMessage(message)
+            .then(() => {
+                setMessage(defaultState);
+                setErrorMessage();
+                setModal({show: true, content: "The message sent successfully!!!"});
+            })
+            .catch(() => {
+                setModal({show: true, content: "The message sent failed!!!"});
             });
-        }).catch(error => {
-            setModal({
-                show: true,
-                content: "The message sent failed!!!",
-            });
-        });
     }
 
     function handleClose() {
         setModal(defaultModal);
     }
 
-    function isValidPhoneNumber(e) {
-        return /^\(?(\d{3})\)?[-. ]?(\d{3})[-. ]?(\d{4})(?:[ ]?(?:#|x)(\d+))?$/.test(e)
+    function isValidPhoneNumber(phone) {
+        return /^\(?(\d{3})\)?[-. ]?(\d{3})[-. ]?(\d{4})(?:[ ]?(?:#|x)(\d+))?$/.test(phone);
     }
 
     function renderModal() {
@@ -93,9 +88,7 @@ function Contact(props) {
     }
 
     return (
-        <section
-            className="paralax-mf footer-paralax bg-image sect-mt4 route"
-        >
+        <section className="paralax-mf footer-paralax bg-image sect-mt4 route">
             <div className="overlay-mf"></div>
             <div className="container">
                 <div className="row">
@@ -207,12 +200,9 @@ function Contact(props) {
                                                     </div>
                                                 </div>
                                                 <div className="col-md-12 submit-btn">
-                                                    <div className="error-message">{errorMessage}</div>
-                                                    <button
-                                                        type="submit"
-                                                        className="btn-shutter-out-horizontal "
-                                                        // onClick={(e) => handleSubmit(e)}
-                                                    >
+                                                    {errorMessage &&
+                                                        <div className="error-message">{errorMessage}</div>}
+                                                    <button type="submit" className="btn-shutter-out-horizontal ">
                                                         Send Message
                                                     </button>
                                                 </div>

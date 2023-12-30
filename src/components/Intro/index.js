@@ -5,13 +5,13 @@ import Links from "../Links";
 class Intro extends React.Component {
 
     onClick() {
-
+        // Handle click event if needed
     }
 
     render() {
         return (
-            // <div id="home" className="intro route bg-image " style={{backgroundImage: "url("+bigImage+")"}}>
             <div id="home" className="intro route bg-image background">
+                {/* Stars background (if used) */}
                 <div id="stars"/>
                 <div id="stars2"/>
                 <div id="stars3"/>
@@ -24,9 +24,7 @@ class Intro extends React.Component {
                                 <span className="text-slider-items"></span>
                                 <strong className="text-slider">
                                     <Typed
-                                        strings={[
-                                            "Software Engineer"
-                                        ]}
+                                        strings={["Software Engineer"]}
                                         typeSpeed={80}
                                         backDelay={1100}
                                         backSpeed={30}
@@ -43,6 +41,7 @@ class Intro extends React.Component {
                                     More About Me
                                 </a>
                             </p>
+                            {/* Display Links component */}
                             <Links/>
                         </div>
                     </div>

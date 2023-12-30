@@ -1,6 +1,6 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 
-import {Account} from './components/Account';
+import { Account } from './components/Account';
 import Navbar from './components/NavBar';
 import Intro from './components/Intro';
 import About from './components/About';
@@ -9,16 +9,15 @@ import Blog from './components/Blog';
 import Contact from './components/Contact';
 import SkillsAndExperience from './components/SkillsAndExperience';
 
-import BackToTop from './components/back-top';
-import Preloader from './components/preloader';
+import BackToTop from './components/BackToTop';
+import Preloader from './components/Preloader';
 import Timeline from './components/Timeline';
 import Utils from './common/Utils';
 import StaticData from './common/StaticData';
 
 import "./styles/common.scss";
 
-const App = (props) => {
-
+const App = () => {
     useEffect(() => {
         const hash = window.location.hash;
         if (hash) {
@@ -43,25 +42,25 @@ const App = (props) => {
 
     return (
         <Account>
-            <Navbar/>
-            <Intro/>
-            <About/>
-            <SkillsAndExperience/>
-            {/*<Project/>*/}
-            {/* <Timeline
-        id="experience"
-        setions={StaticData.getExperience()}
-        sectionName="Experience"
-      /> */}
+            <Navbar />
+            <Intro />
+            <About />
+            <SkillsAndExperience />
+            {/*<Project />*/}
             <Timeline
                 id="education"
                 setions={StaticData.getEducation()}
                 sectionName="Education"
             />
-            <Blog/>
-            <Contact/>
-            <BackToTop/>
-            <Preloader/>
+            <Timeline
+                id="certification"
+                setions={StaticData.getCertification()}
+                sectionName="Certification"
+            />
+            <Blog />
+            <Contact />
+            <BackToTop />
+            <Preloader />
         </Account>
     );
 }
