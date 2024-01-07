@@ -430,7 +430,7 @@ const StaticData = {
                 "years": "Issued Jan 07, 2024",
                 "logo": hackerrank,
                 "link": "https://www.hackerrank.com/certificates/929334b6247d",
-                "mainBadges": ["Software Engineer Certificate"],
+                "mainBadges": ["HackerRank Software Engineer Certificate"],
                 "badges": [
                     "Problem solving",
                     "SQL",
