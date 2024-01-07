@@ -427,7 +427,7 @@ const StaticData = {
             {
                 "title": "",
                 "contain": "",
-                "years": "07 Jan, 2024",
+                "years": "Issued Jan 07, 2024",
                 "logo": hackerrank,
                 "link": "https://www.hackerrank.com/certificates/929334b6247d",
                 "mainBadges": ["Software Engineer Certificate"],
@@ -440,7 +440,7 @@ const StaticData = {
             {
                 "title": "",
                 "contain": "",
-                "years": "Dec 21, 2023 - Dec 21, 2026",
+                "years": "Issued Dec 21, 2023 · Expires Dec 21, 2026",
                 "logo": awsDev,
                 "link": "https://aws.amazon.com/certification/certified-developer-associate/",
                 "mainBadges": ["AWS Certified Developer - Associate"],
