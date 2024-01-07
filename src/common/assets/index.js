@@ -6,8 +6,10 @@ import spkt from "./spkt.png";
 import tdt from "./tdt.png";
 import maharishi from "./maharishi.png";
 import awsDev from "./aws-dev.jpeg";
+import hackerrank from "./hackerrank.png";
 
 export {
+    hackerrank,
     awsDev,
     tinhvan,
     vnitt,

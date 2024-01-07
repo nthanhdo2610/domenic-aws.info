@@ -1,5 +1,5 @@
 import {
-    spkt, maharishi, code88, tinhvan, vnitt, awsDev
+    spkt, maharishi, code88, tinhvan, vnitt, awsDev, hackerrank
 } from "./assets";
 import {
     SiAmazonaws,
@@ -304,6 +304,10 @@ const StaticData = {
                                 link: "",
                             },
                             {
+                                text: "• Assisted the Infrastructure and DevOps teams in delivering, troubleshooting, and resolving urgent tasks that arose in the production environment.",
+                                link: "",
+                            },
+                            {
                                 text: "Cultivated cross-team collaboration, consistently pursued self-learning, and achieved mastery in Spring Boot and microservices, significantly improving system analysis and overall team capabilities.",
                                 link: "",
                             },
@@ -423,7 +427,20 @@ const StaticData = {
             {
                 "title": "",
                 "contain": "",
-                "years": "Dec 21, 2023",
+                "years": "07 Jan, 2024",
+                "logo": hackerrank,
+                "link": "https://www.hackerrank.com/certificates/929334b6247d",
+                "mainBadges": ["Software Engineer Certificate"],
+                "badges": [
+                    "Problem solving",
+                    "SQL",
+                    "REST API"
+                ]
+            },
+            {
+                "title": "",
+                "contain": "",
+                "years": "Dec 21, 2023 - Dec 21, 2026",
                 "logo": awsDev,
                 "link": "https://aws.amazon.com/certification/certified-developer-associate/",
                 "mainBadges": ["AWS Certified Developer - Associate"],
