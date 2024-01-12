@@ -442,7 +442,7 @@ const StaticData = {
                 "contain": "",
                 "years": "Issued Dec 21, 2023 · Expires Dec 21, 2026",
                 "logo": awsDev,
-                "link": "https://aws.amazon.com/certification/certified-developer-associate/",
+                "link": "https://drive.google.com/file/d/1rLs89S3Qb1y2KOhpnefp6taoUkU-8y7A/view",
                 "mainBadges": ["AWS Certified Developer - Associate"],
                 "badges": [
                     "Develop and optimize applications on AWS",

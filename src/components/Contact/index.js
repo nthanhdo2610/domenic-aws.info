@@ -18,7 +18,7 @@ export const info = {
     website: "www.domenic-aws.info",
     address: "Vancouver, WA 98662",
     phone: "(360) 784-1696",
-    email: "nguyenthanhdo1993phuyen@gmail.com",
+    email: "thanhdomenic.nguyen@gmail.com",
 };
 
 const defaultState = {
