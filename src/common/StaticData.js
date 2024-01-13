@@ -304,7 +304,7 @@ const StaticData = {
                                 link: "",
                             },
                             {
-                                text: "• Assisted the Infrastructure and DevOps teams in delivering, troubleshooting, and resolving urgent tasks that arose in the production environment.",
+                                text: "Assisted the Infrastructure and DevOps teams in delivering, troubleshooting, and resolving urgent tasks that arose in the production environment.",
                                 link: "",
                             },
                             {
