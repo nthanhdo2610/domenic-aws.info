@@ -48,14 +48,14 @@ const App = () => {
             <SkillsAndExperience />
             {/*<Project />*/}
             <Timeline
-                id="education"
-                setions={StaticData.getEducation()}
-                sectionName="Education"
-            />
-            <Timeline
                 id="certification"
                 setions={StaticData.getCertification()}
                 sectionName="Certification"
+            />
+            <Timeline
+                id="education"
+                setions={StaticData.getEducation()}
+                sectionName="Education"
             />
             <Blog />
             <Contact />
