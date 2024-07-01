@@ -25,11 +25,15 @@ In the project directory, you can run:
 
 ### `yarn`
 
+### `yarn install`
+
 ### `yarn build`
 
 ### `yarn start`
 
 ### `aws s3 sync build/ s3://your-bucket-name`
+
+#### `Example: aws s3 sync build/ s3://www.domenic-aws.info`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
