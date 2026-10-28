@@ -1,5 +1,5 @@
 import {
-    spkt, maharishi, code88, tinhvan, vnitt, awsDev, hackerrank
+    intellinum, spkt, maharishi, code88, tinhvan, vnitt, awsDev, hackerrank
 } from "./assets";
 import {
     SiAmazonaws,
@@ -279,6 +279,23 @@ const StaticData = {
     getExperience: function () {
         return [
             {
+                organisation: "Intellinum Inc., USA",
+                logo: intellinum,
+                link: "https://www.intellinum.com",
+                positions: [
+                    {
+                        title: "Software Engineer",
+                        duration: "Feb 2024 – Present",
+                        content: [
+                            {
+                                text: "Intellinum is Oracle’s preferred mobility partner and leading Logistics implementation professional services firm. The company is comprised of a team of experienced leaders with deep expertise in Oracle development and functional expertise. With headquarters in Dallas, Texas, and offices in Indonesia, India, and Dubai, Intellinum is a global organization that serves a diverse customer base.",
+                                link: "",
+                            }
+                        ],
+                    },
+                ],
+            },
+            {
                 organisation: "Code88 Company Limited, Ho Chi Minh, Vietnam",
                 logo: code88,
                 link: "https://www.code88.asia/v1/index.php",
@@ -397,7 +414,7 @@ const StaticData = {
             {
                 "title": "Maharish International University",
                 "contain": "1000 N 4th St, Fairfield, IA 52557",
-                "years": "Jan 2023 - present",
+                "years": "Jan 2023 - Jun 2025",
                 "logo": maharishi,
                 "link": "https://www.miu.edu/",
                 "mainBadges": ["Master of Science in Computer Science"],
@@ -406,6 +423,8 @@ const StaticData = {
                     "Big Data Technology",
                     "Enterprise Architecture",
                     "Cloud Computing",
+                    "Data Science",
+                    "Generative AI",
                     "Algorithms",
                     "Leadership for Tech Managers"
                 ]
@@ -424,6 +443,20 @@ const StaticData = {
 
     getCertification: function () {
         return [
+            {
+                "title": "",
+                "contain": "",
+                "years": "Issued Jun 21, 2025",
+                "logo": maharishi,
+                "link": "",
+                "mainBadges": ["MSCS Concentration in Data Science"],
+                "badges": [
+                    "Machine Learning",
+                    "Big Data",
+                    "Generative AI",
+                    "Data Visualization"
+                ]
+            },
             {
                 "title": "",
                 "contain": "",

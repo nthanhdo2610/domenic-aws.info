@@ -7,6 +7,7 @@ import tdt from "./tdt.png";
 import maharishi from "./maharishi.png";
 import awsDev from "./aws-dev.jpeg";
 import hackerrank from "./hackerrank.png";
+import intellinum from "./intellinum.jpg";
 
 export {
     hackerrank,
@@ -17,5 +18,6 @@ export {
     code88,
     tdt,
     maharishi,
-    spkt
+    spkt,
+    intellinum
 };
